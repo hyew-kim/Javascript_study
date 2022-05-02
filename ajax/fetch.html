@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FETCH</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <article>A</article>
+    <button>fetch</button>
+    <button>color</button>
+    <button>addText</button>
+    <button>deleteText</button>
+  </body>
+  <script>
+    const btns = document.querySelectorAll("button");
+
+    function handleClick(evt) {
+      const btn = evt.target.closest("button");
+      const article = document.querySelector("article");
+
+      if (btn.innerText === "fetch") {
+        fetch("./css").then((res) =>
+          res.text().then((text) => (article.innerHTML = `<p>${text}</p>`))
+        );
+      } else if (btn.innerText === "color") {
+        article.style.background = "gray";
+      } else if (btn.innerText === "addText") {
+        const p = document.createElement("p");
+        p.innerText = "HI I'm added!!";
+        article.prepend(p);
+      } else if (btn.innerText === "deleteText") {
+        const child = article.children;
+        if (child.length === 0) return false;
+        child[child.length - 1].remove();
+      }
+    }
+    btns.forEach((btn) => btn.addEventListener("click", handleClick));
+  </script>
+</html>
