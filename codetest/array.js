@@ -52,6 +52,18 @@ var arr = [1, 2, 3, 4, 5];
 console.log(arr.slice(2, 3)); // start, end
 console.log(arr.slice(2, 7)); // 범위 넘어가는 end 기입 시 배열의 끝까지 slice
 console.log(arr); //원본 변경 안됨
-*/
 
-//11. find
+//11. find : 주어진 판별 함수를 만족하는 첫 번째 요소의 값을 return 그런 요소가 없다면 undefined를 return
+const array1 = [5, 12, 8, 130, 44];
+const found = array1.find(element => element > 10);
+console.log(found);
+// expected output: 12
+
+//12. findIndex: 주어진 판별 함수를 만족하는 값의 위치 return, 없다면 -1 return
+const array1 = [5, 12, 8, 130, 44];
+
+const isLargeNumber = (element) => element > 13;
+
+console.log(array1.findIndex(isLargeNumber));
+// expected output: 3
+*/
